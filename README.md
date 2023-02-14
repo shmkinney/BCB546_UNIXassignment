@@ -1,6 +1,6 @@
 UNIX Assignment
 
-
+_
 Part 1: Data Inspection
 
 file: fang_et_al_genotypes.txt
@@ -17,6 +17,7 @@ Using code [awk -F "\t" '{print NF; exit}'] gives 986
 
 
 The file is large with lots of SNP and genotype data. It has 2783 lines, uses 6152 in disc space, and has 986 columns
+_
 
 file: snp_position.txt
 
@@ -32,7 +33,6 @@ Using code [awk -F "\t" '{print NF; exit}'] gives 15
 
 
 The file has lots of different information contained in columns. There are 984 lines, 15 columns, and it uses 38K in disc space.
-
-
+_
 
 Part 2: Data Processing
