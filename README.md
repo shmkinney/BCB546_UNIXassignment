@@ -1,6 +1,7 @@
 UNIX Assignment
 
 _
+
 Part 1: Data Inspection
 
 file: fang_et_al_genotypes.txt
