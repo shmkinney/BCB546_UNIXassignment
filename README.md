@@ -121,4 +121,6 @@ awk -f transpose.awk tsgen.txt > teosin.txt
 
 cut -f 1,3,4 sort_snp.txt > cut_snp.txt
 
-join -1 1 -2 1 -t "\t" cut_snp.txt sort_maize.txt > comaize.txt 
+join -1 1 -2 1 -a 2 -t $'\t' cut_snp.txt sort_maize.txt > comaize.txt
+
+join -1 1 -2 1 -a 2 -t $'\t' cut_snp.txt sort_teosin.txt > coteosin.txt
