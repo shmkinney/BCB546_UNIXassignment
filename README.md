@@ -99,14 +99,26 @@ teosinte
 
 EVERYTHING IS BROKEN AND WONT WORK ARGH
 
+
+CURRENT PROGRESS
+
+
 sed 's/Sample_ID/SNP_ID/' fang_et_al_genotypes.txt > fang_gen.txt
 
 (head -n 1 fang_gen.txt && grep -E "ZMMIL|ZMMLR|ZMMMR" fang_gen.txt) > mzgen.txt
 
+(head -n 1 fang_gen.txt && grep -E "ZMPBA|ZMPIL|ZMPJA" fang_gen.txt) > tsgen.txt
+
 awk -f transpose.awk mzgen.txt > maize.txt
 
-(head -n 1 snp_position.txt && tail -n +2 snp_position.txt | sort) > sort_snp.txt
+awk -f transpose.awk tsgen.txt > teosin.txt
+
+(head -n 1 maize.txt && tail -n +2 maize.txt | sort -k1,1 ) > sort_maize.txt
+
+(head -n 1 teosin.txt && tail -n +2 teosin.txt | sort -k1,1 ) > sort_teosin.txt
+
+(head -n 1 snp_position.txt && tail -n +2 snp_position.txt | sort -k1,1 ) > sort_snp.txt
 
 cut -f 1,3,4 sort_snp.txt > cut_snp.txt
 
-join -1 1 -2 1 -t "\t" cut_snp.txt sort_maize.txt > comaize.txt FAILS WHY WHY WHY
+join -1 1 -2 1 -t "\t" cut_snp.txt sort_maize.txt > comaize.txt 
