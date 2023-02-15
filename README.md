@@ -60,3 +60,10 @@ Check that the join merged correctly using [wc total.txt]; received  986  275625
 
 Check the column number in order to verify the tab-delimited nature of the file using [awk -F "\t" '{print NF; exit}' total.txt]; this gives 2797 columns, so the tab-delimiting worked.
 
+
+## New Part 2
+
+_
+extract data
+maize [(head -n 1 origen1.txt && grep -E "Group|ZMMIL|ZMMLR|ZMMMR" origen1.txt) > maize_gen.txt]
+teosinte [(head -n 1 origen1.txt && grep -E "Group|ZMPBA|ZMPIL|ZMPJA" origen1.txt) > teosinte_gen.txt]
