@@ -54,6 +54,9 @@ Replace {Sample_ID} in the transposed_genotypes.txt file with {SNP_ID} using [se
 
 Second, sort both files using [sort]; [(head -n 1 snp.txt && tail -n +2 snp.txt | sort -k1,1 ) > sort_snp.txt] and [(head -n 1 gen.txt && tail -n +2 gen.txt | sort -k1,1 ) > sort_gen.txt].
 
-Next, join the two sorted files using [join -1 1 -2 1 -a 2 -t $'\t' sort_snp.txt sort_gen.txt > total.txt]
+Next, join the two sorted files using [join -1 1 -2 1 -a 2 -t $'\t' sort_snp.txt sort_gen.txt > total.txt], which will keep unmatched data and give a tab-delimited file.
 
+Check that the join merged correctly using [wc total.txt]; received  986  2756252 11123868 total.txt. Therefore there are 986 lines in the file, which matches the column number in the original fang_et_al_genotypes.txt file.
+
+Check the column number in order to verify the tab-delimited nature of the file using [awk -F "\t" '{print NF; exit}' total.txt]; this gives 2797 columns, so the tab-delimiting worked.
 
