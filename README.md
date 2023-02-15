@@ -64,9 +64,49 @@ Check the column number in order to verify the tab-delimited nature of the file 
 ## New Part 2
 
 _
+
 extract data
 
 maize [grep -E "Group|ZMMIL|ZMMLR|ZMMMR" origen1.txt > maize_gen.txt]
 
 teosinte [grep -E "Group|ZMPBA|ZMPIL|ZMPJA" origen1.txt > teosinte_gen.txt]
 
+_
+
+transpose
+
+maize [awk -f transpose.awk maize_gen.txt > maize.txt]
+
+teosinte [awk -f transpose.awk teosinte_gen.txt > teosinte.txt]
+
+_
+
+edit and sort
+
+maize [sed 's/Sample_ID/SNP_ID/' maize.txt | (head -n 1 && tail -n +2 | sort -k1) > nmaize.txt]
+
+teosinte [sed 's/Sample_ID/SNP_ID/' teosinte.txt | (head -n 1 && tail -n +2 | sort -k1) > nteosinte.txt]
+
+snp [(head -n 1 snp1.txt && tail -n +2 snp1.txt | sort -k1,1 ) > sort_snp1.txt]
+
+_
+
+join
+
+maize
+
+teosinte
+
+EVERYTHING IS BROKEN AND WONT WORK ARGH
+
+sed 's/Sample_ID/SNP_ID/' fang_et_al_genotypes.txt > fang_gen.txt
+
+(head -n 1 fang_gen.txt && grep -E "ZMMIL|ZMMLR|ZMMMR" fang_gen.txt) > mzgen.txt
+
+awk -f transpose.awk mzgen.txt > maize.txt
+
+(head -n 1 snp_position.txt && tail -n +2 snp_position.txt | sort) > sort_snp.txt
+
+cut -f 1,3,4 sort_snp.txt > cut_snp.txt
+
+join -1 1 -2 1 -t "\t" cut_snp.txt sort_maize.txt > comaize.txt FAILS WHY WHY WHY
