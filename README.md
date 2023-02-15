@@ -66,7 +66,7 @@ Check the column number in order to verify the tab-delimited nature of the file 
 _
 extract data
 
-maize [(head -n 1 origen1.txt && grep -E "Group|ZMMIL|ZMMLR|ZMMMR" origen1.txt) > maize_gen.txt]
+maize [grep -E "Group|ZMMIL|ZMMLR|ZMMMR" origen1.txt > maize_gen.txt]
 
-teosinte [(head -n 1 origen1.txt && grep -E "Group|ZMPBA|ZMPIL|ZMPJA" origen1.txt) > teosinte_gen.txt]
+teosinte [grep -E "Group|ZMPBA|ZMPIL|ZMPJA" origen1.txt > teosinte_gen.txt]
 
