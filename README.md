@@ -1,8 +1,8 @@
-UNIX Assignment
+## UNIX Assignment
 
 _
 
-Part 1: Data Inspection
+#Part 1: Data Inspection
 
 file: fang_et_al_genotypes.txt
 
@@ -42,7 +42,7 @@ The file has lots of different information contained in columns. There are 984 l
 
 _
 
-Part 2: Data Processing
+#Part 2: Data Processing
 
 _
 
