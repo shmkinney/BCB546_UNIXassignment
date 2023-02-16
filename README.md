@@ -124,3 +124,55 @@ cut -f 1,3,4 sort_snp.txt > cut_snp.txt
 join -1 1 -2 1 -a 2 -t $'\t' cut_snp.txt sort_maize.txt > comaize.txt
 
 join -1 1 -2 1 -a 2 -t $'\t' cut_snp.txt sort_teosin.txt > coteosin.txt
+
+awk '$2~/^1$|Chromosome/' comaize.txt > mchr1.txt
+
+awk '$2~/^2$|Chromosome/' comaize.txt > mchr2.txt
+
+awk '$2~/^3$|Chromosome/' comaize.txt > mchr3.txt
+
+awk '$2~/^4$|Chromosome/' comaize.txt > mchr4.txt
+
+awk '$2~/^5$|Chromosome/' comaize.txt > mchr5.txt
+
+awk '$2~/^6$|Chromosome/' comaize.txt > mchr6.txt
+
+awk '$2~/^7$|Chromosome/' comaize.txt > mchr7.txt
+
+awk '$2~/^8$|Chromosome/' comaize.txt > mchr8.txt
+
+awk '$2~/^9$|Chromosome/' comaize.txt > mchr9.txt
+
+awk '$2~/^10$|Chromosome/' comaize.txt > mchr10.txt
+
+awk '$2~/^multiple$|Chromosome/' comaize.txt > mchrmultiple.txt
+
+awk '$2~/^unknown$|Chromosome/' comaize.txt > mchrunknown.txt
+
+awk '$2~/^1$|Chromosome/' coteosin.txt > tchr1.txt
+
+awk '$2~/^2$|Chromosome/' coteosin.txt > tchr2.txt
+
+awk '$2~/^3$|Chromosome/' coteosin.txt > tchr3.txt
+
+awk '$2~/^4$|Chromosome/' coteosin.txt > tchr4.txt
+
+awk '$2~/^5$|Chromosome/' coteosin.txt > tchr5.txt
+
+awk '$2~/^6$|Chromosome/' coteosin.txt > tchr6.txt
+
+awk '$2~/^7$|Chromosome/' coteosin.txt > tchr7.txt
+
+awk '$2~/^8$|Chromosome/' coteosin.txt > tchr8.txt
+
+awk '$2~/^9$|Chromosome/' coteosin.txt > tchr9.txt
+
+awk '$2~/^10$|Chromosome/' coteosin.txt > tchr10.txt
+
+awk '$2~/^multiple$|Chromosome/' coteosin.txt > tchrmultiple.txt
+
+awk '$2~/^unknown$|Chromosome/' coteosin.txt > tchrunknown.txt
+
+
+
+
