@@ -138,6 +138,47 @@ awk '$2~/^multiple$|Chromosome/' coteosin.txt > tchrmultiple.txt
 
 awk '$2~/^unknown$|Chromosome/' coteosin.txt > tchrunknown.txt
 
+sort -k3,3n mchr1.txt > michr1.txt
+
+sort -k3,3n mchr2.txt > michr2.txt
+
+sort -k3,3n mchr3.txt > michr3.txt
+
+sort -k3,3n mchr4.txt > michr4.txt
+
+sort -k3,3n mchr5.txt > michr5.txt
+
+sort -k3,3n mchr6.txt > michr6.txt
+
+sort -k3,3n mchr7.txt > michr7.txt
+
+sort -k3,3n mchr8.txt > michr8.txt
+
+sort -k3,3n mchr9.txt > michr9.txt
+
+sort -k3,3n mchr10.txt > michr10.txt
+
+sort -k3,3n tchr1.txt > tichr1.txt
+
+sort -k3,3n tchr2.txt > tichr2.txt
+
+sort -k3,3n tchr3.txt > tichr3.txt
+
+sort -k3,3n tchr4.txt > tichr4.txt
+
+sort -k3,3n tchr5.txt > tichr5.txt
+
+sort -k3,3n tchr6.txt > tichr6.txt
+
+sort -k3,3n tchr7.txt > tichr7.txt
+
+sort -k3,3n tchr8.txt > tichr8.txt
+
+sort -k3,3n tchr9.txt > tichr9.txt
+
+sort -k3,3n tchr10.txt > tichr10.txt
+
+
 
 
 
