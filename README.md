@@ -67,16 +67,23 @@ _
 
 CURRENT PROGRESS
 
+**First, make sure the common column between both files has the same name; in this case, change Sample_ID to SNP_ID in fang_et_al_genotypes.
 
 sed 's/Sample_ID/SNP_ID/' fang_et_al_genotypes.txt > fang_gen.txt
+
+**Next, separate out the maize and teosinte data.
 
 (head -n 1 fang_gen.txt && grep -E "ZMMIL|ZMMLR|ZMMMR" fang_gen.txt) > mzgen.txt
 
 (head -n 1 fang_gen.txt && grep -E "ZMPBA|ZMPIL|ZMPJA" fang_gen.txt) > tsgen.txt
 
+**Transpose the files.
+
 awk -f transpose.awk mzgen.txt > maize.txt
 
 awk -f transpose.awk tsgen.txt > teosin.txt
+
+**Sort all the files on the SNP_ID column.
 
 (head -n 1 maize.txt && tail -n +2 maize.txt | sort -k1,1 ) > sort_maize.txt
 
@@ -84,11 +91,17 @@ awk -f transpose.awk tsgen.txt > teosin.txt
 
 (head -n 1 snp_position.txt && tail -n +2 snp_position.txt | sort -k1,1 ) > sort_snp.txt
 
+**Cut only desired columns from the snp file.
+
 cut -f 1,3,4 sort_snp.txt > cut_snp.txt
+
+**Join together the maize/teosinte and snp files
 
 join -1 1 -2 1 -a 2 -t $'\t' cut_snp.txt sort_maize.txt > comaize.txt
 
 join -1 1 -2 1 -a 2 -t $'\t' cut_snp.txt sort_teosin.txt > coteosin.txt
+
+**Separate data out by chromosome; this gives completed files for multiple and unknown SNP locations, labeled starting with m or t for maize or teosinte, chr for chromosome, and multiple or unknown for location.
 
 awk '$2~/^1$|Chromosome/' comaize.txt > mchr1.txt
 
@@ -138,6 +151,8 @@ awk '$2~/^multiple$|Chromosome/' coteosin.txt > tchrmultiple.txt
 
 awk '$2~/^unknown$|Chromosome/' coteosin.txt > tchrunknown.txt
 
+**Sort chromosome data by increasing position. This gives completed files for increasing position and missing data is encoded by "?"; files are labeled with m or t for maize or teosinte, i for increasing, and chr{number} for specific chromosome number.
+
 sort -k3,3n mchr1.txt > michr1.txt
 
 sort -k3,3n mchr2.txt > michr2.txt
@@ -177,6 +192,8 @@ sort -k3,3n tchr8.txt > tichr8.txt
 sort -k3,3n tchr9.txt > tichr9.txt
 
 sort -k3,3n tchr10.txt > tichr10.txt
+
+**Sort chromosome data by decreasing position, while missing data is replaced by the character "-". This gives completed files for decreasing position and missing data is encoded by "-"; files are labeled with m or t for maize or teosinte, d for decreasing, and chr{number} for specific chromosome number.
 
 sed 's/?/-/g' mchr1.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > mdchr1.txt
 
@@ -219,4 +236,4 @@ sed 's/?/-/g' tchr9.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr9.txt
 sed 's/?/-/g' tchr10.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr10.txt
 
 
-
+###End
