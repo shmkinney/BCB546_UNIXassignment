@@ -67,11 +67,11 @@ _
 
 CURRENT PROGRESS
 
-**First, make sure the common column between both files has the same name; in this case, change Sample_ID to SNP_ID in fang_et_al_genotypes.
+** First, make sure the common column between both files has the same name; in this case, change Sample_ID to SNP_ID in fang_et_al_genotypes. **
 
 sed 's/Sample_ID/SNP_ID/' fang_et_al_genotypes.txt > fang_gen.txt
 
-**Next, separate out the maize and teosinte data.
+** Next, separate out the maize and teosinte data.
 
 (head -n 1 fang_gen.txt && grep -E "ZMMIL|ZMMLR|ZMMMR" fang_gen.txt) > mzgen.txt
 
