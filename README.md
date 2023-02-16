@@ -65,41 +65,6 @@ Check the column number in order to verify the tab-delimited nature of the file 
 
 _
 
-extract data
-
-maize [grep -E "Group|ZMMIL|ZMMLR|ZMMMR" origen1.txt > maize_gen.txt]
-
-teosinte [grep -E "Group|ZMPBA|ZMPIL|ZMPJA" origen1.txt > teosinte_gen.txt]
-
-_
-
-transpose
-
-maize [awk -f transpose.awk maize_gen.txt > maize.txt]
-
-teosinte [awk -f transpose.awk teosinte_gen.txt > teosinte.txt]
-
-_
-
-edit and sort
-
-maize [sed 's/Sample_ID/SNP_ID/' maize.txt | (head -n 1 && tail -n +2 | sort -k1) > nmaize.txt]
-
-teosinte [sed 's/Sample_ID/SNP_ID/' teosinte.txt | (head -n 1 && tail -n +2 | sort -k1) > nteosinte.txt]
-
-snp [(head -n 1 snp1.txt && tail -n +2 snp1.txt | sort -k1,1 ) > sort_snp1.txt]
-
-_
-
-join
-
-maize
-
-teosinte
-
-EVERYTHING IS BROKEN AND WONT WORK ARGH
-
-
 CURRENT PROGRESS
 
 
