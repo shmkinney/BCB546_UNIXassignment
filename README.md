@@ -4,7 +4,7 @@ _
 
 ## Part 1: Data Inspection
 
-file: fang_et_al_genotypes.txt
+**Analyzing file: fang_et_al_genotypes.txt**
 
 Using code [head] gives large chunk of text, with Sample_ID at the top, followed by PZA values, followed by SNP genotypes
 
@@ -19,11 +19,11 @@ Using code [awk -F "\t" '{print NF; exit}'] gives 986
 Using module bioawk, and using code [file] gives ASCII text, with very long lines
 
 
-The file is large with lots of SNP and genotype data. It has 2783 lines, uses 6152 in disc space, and has 986 columns. It has only ASCII characters.
+**The file is large with lots of SNP and genotype data. It has 2783 lines, uses 6152 in disc space, and has 986 columns. It has only ASCII characters.**
 
 _
 
-file: snp_position.txt
+**Analyzing file: snp_position.txt**
 
 Using code [head] gives several columns of infomation, including SNP_ID, Chromosome, Position, and gene
 
@@ -38,7 +38,7 @@ Using code [awk -F "\t" '{print NF; exit}'] gives 15
 Using module bioawk, and using code [file] gives ASCII text
 
 
-The file has lots of different information contained in columns. There are 984 lines, 15 columns, and it uses 38K in disc space. It has only ASCII characters.
+**The file has lots of different information contained in columns. There are 984 lines, 15 columns, and it uses 38K in disc space. It has only ASCII characters.**
 
 _
 
@@ -69,7 +69,7 @@ awk -f transpose.awk tsgen.txt > teosin.txt
 
 (head -n 1 snp_position.txt && tail -n +2 snp_position.txt | sort -k1,1 ) > sort_snp.txt
 
-**Cut only desired columns from the snp file.**
+**Cut only desired columns (SNP_ID, Chromosome, and Position) from the snp file.**
 
 cut -f 1,3,4 sort_snp.txt > cut_snp.txt
 
@@ -79,7 +79,7 @@ join -1 1 -2 1 -a 2 -t $'\t' cut_snp.txt sort_maize.txt > comaize.txt
 
 join -1 1 -2 1 -a 2 -t $'\t' cut_snp.txt sort_teosin.txt > coteosin.txt
 
-**Separate data out by chromosome; this gives completed files for multiple and unknown SNP locations, labeled starting with m or t for maize or teosinte, chr for chromosome, and multiple or unknown for location.**
+**Separate data out by chromosome. This gives completed files for multiple and unknown SNP locations, labeled starting with m or t for maize or teosinte, chr for chromosome, and multiple or unknown for location.**
 
 awk '$2~/^1$|Chromosome/' comaize.txt > mchr1.txt
 
