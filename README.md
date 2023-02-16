@@ -45,7 +45,7 @@ _
 ## Part 2: Data Processing
 
 
-**First, make sure the common column between both files has the same name; in this case, change Sample_ID to SNP_ID in fang_et_al_genotypes.**
+**First, make sure the common colomn (or row which will become column) between both files has the same name; in this case, change Sample_ID to SNP_ID in fang_et_al_genotypes.**
 
 sed 's/Sample_ID/SNP_ID/' fang_et_al_genotypes.txt > fang_gen.txt
 
