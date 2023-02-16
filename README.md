@@ -65,41 +65,6 @@ Check the column number in order to verify the tab-delimited nature of the file 
 
 _
 
-extract data
-
-maize [grep -E "Group|ZMMIL|ZMMLR|ZMMMR" origen1.txt > maize_gen.txt]
-
-teosinte [grep -E "Group|ZMPBA|ZMPIL|ZMPJA" origen1.txt > teosinte_gen.txt]
-
-_
-
-transpose
-
-maize [awk -f transpose.awk maize_gen.txt > maize.txt]
-
-teosinte [awk -f transpose.awk teosinte_gen.txt > teosinte.txt]
-
-_
-
-edit and sort
-
-maize [sed 's/Sample_ID/SNP_ID/' maize.txt | (head -n 1 && tail -n +2 | sort -k1) > nmaize.txt]
-
-teosinte [sed 's/Sample_ID/SNP_ID/' teosinte.txt | (head -n 1 && tail -n +2 | sort -k1) > nteosinte.txt]
-
-snp [(head -n 1 snp1.txt && tail -n +2 snp1.txt | sort -k1,1 ) > sort_snp1.txt]
-
-_
-
-join
-
-maize
-
-teosinte
-
-EVERYTHING IS BROKEN AND WONT WORK ARGH
-
-
 CURRENT PROGRESS
 
 
@@ -124,3 +89,134 @@ cut -f 1,3,4 sort_snp.txt > cut_snp.txt
 join -1 1 -2 1 -a 2 -t $'\t' cut_snp.txt sort_maize.txt > comaize.txt
 
 join -1 1 -2 1 -a 2 -t $'\t' cut_snp.txt sort_teosin.txt > coteosin.txt
+
+awk '$2~/^1$|Chromosome/' comaize.txt > mchr1.txt
+
+awk '$2~/^2$|Chromosome/' comaize.txt > mchr2.txt
+
+awk '$2~/^3$|Chromosome/' comaize.txt > mchr3.txt
+
+awk '$2~/^4$|Chromosome/' comaize.txt > mchr4.txt
+
+awk '$2~/^5$|Chromosome/' comaize.txt > mchr5.txt
+
+awk '$2~/^6$|Chromosome/' comaize.txt > mchr6.txt
+
+awk '$2~/^7$|Chromosome/' comaize.txt > mchr7.txt
+
+awk '$2~/^8$|Chromosome/' comaize.txt > mchr8.txt
+
+awk '$2~/^9$|Chromosome/' comaize.txt > mchr9.txt
+
+awk '$2~/^10$|Chromosome/' comaize.txt > mchr10.txt
+
+awk '$2~/^multiple$|Chromosome/' comaize.txt > mchrmultiple.txt
+
+awk '$2~/^unknown$|Chromosome/' comaize.txt > mchrunknown.txt
+
+awk '$2~/^1$|Chromosome/' coteosin.txt > tchr1.txt
+
+awk '$2~/^2$|Chromosome/' coteosin.txt > tchr2.txt
+
+awk '$2~/^3$|Chromosome/' coteosin.txt > tchr3.txt
+
+awk '$2~/^4$|Chromosome/' coteosin.txt > tchr4.txt
+
+awk '$2~/^5$|Chromosome/' coteosin.txt > tchr5.txt
+
+awk '$2~/^6$|Chromosome/' coteosin.txt > tchr6.txt
+
+awk '$2~/^7$|Chromosome/' coteosin.txt > tchr7.txt
+
+awk '$2~/^8$|Chromosome/' coteosin.txt > tchr8.txt
+
+awk '$2~/^9$|Chromosome/' coteosin.txt > tchr9.txt
+
+awk '$2~/^10$|Chromosome/' coteosin.txt > tchr10.txt
+
+awk '$2~/^multiple$|Chromosome/' coteosin.txt > tchrmultiple.txt
+
+awk '$2~/^unknown$|Chromosome/' coteosin.txt > tchrunknown.txt
+
+sort -k3,3n mchr1.txt > michr1.txt
+
+sort -k3,3n mchr2.txt > michr2.txt
+
+sort -k3,3n mchr3.txt > michr3.txt
+
+sort -k3,3n mchr4.txt > michr4.txt
+
+sort -k3,3n mchr5.txt > michr5.txt
+
+sort -k3,3n mchr6.txt > michr6.txt
+
+sort -k3,3n mchr7.txt > michr7.txt
+
+sort -k3,3n mchr8.txt > michr8.txt
+
+sort -k3,3n mchr9.txt > michr9.txt
+
+sort -k3,3n mchr10.txt > michr10.txt
+
+sort -k3,3n tchr1.txt > tichr1.txt
+
+sort -k3,3n tchr2.txt > tichr2.txt
+
+sort -k3,3n tchr3.txt > tichr3.txt
+
+sort -k3,3n tchr4.txt > tichr4.txt
+
+sort -k3,3n tchr5.txt > tichr5.txt
+
+sort -k3,3n tchr6.txt > tichr6.txt
+
+sort -k3,3n tchr7.txt > tichr7.txt
+
+sort -k3,3n tchr8.txt > tichr8.txt
+
+sort -k3,3n tchr9.txt > tichr9.txt
+
+sort -k3,3n tchr10.txt > tichr10.txt
+
+sed 's/?/-/g' mchr1.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > mdchr1.txt
+
+sed 's/?/-/g' mchr2.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > mdchr2.txt
+
+sed 's/?/-/g' mchr3.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > mdchr3.txt
+
+sed 's/?/-/g' mchr4.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > mdchr4.txt
+
+sed 's/?/-/g' mchr5.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > mdchr5.txt
+
+sed 's/?/-/g' mchr6.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > mdchr6.txt
+
+sed 's/?/-/g' mchr7.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > mdchr7.txt
+
+sed 's/?/-/g' mchr8.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > mdchr8.txt
+
+sed 's/?/-/g' mchr9.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > mdchr9.txt
+
+sed 's/?/-/g' mchr10.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > mdchr10.txt
+
+sed 's/?/-/g' tchr1.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr1.txt
+
+sed 's/?/-/g' tchr2.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr2.txt
+
+sed 's/?/-/g' tchr3.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr3.txt
+
+sed 's/?/-/g' tchr4.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr4.txt
+
+sed 's/?/-/g' tchr5.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr5.txt
+
+sed 's/?/-/g' tchr6.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr6.txt
+
+sed 's/?/-/g' tchr7.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr7.txt
+
+sed 's/?/-/g' tchr8.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr8.txt
+
+sed 's/?/-/g' tchr9.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr9.txt
+
+sed 's/?/-/g' tchr10.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr10.txt
+
+
+
