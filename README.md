@@ -178,7 +178,45 @@ sort -k3,3n tchr9.txt > tichr9.txt
 
 sort -k3,3n tchr10.txt > tichr10.txt
 
+sed 's/?/-/g' mchr1.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > mdchr1.txt
 
+sed 's/?/-/g' mchr2.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > mdchr2.txt
+
+sed 's/?/-/g' mchr3.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > mdchr3.txt
+
+sed 's/?/-/g' mchr4.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > mdchr4.txt
+
+sed 's/?/-/g' mchr5.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > mdchr5.txt
+
+sed 's/?/-/g' mchr6.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > mdchr6.txt
+
+sed 's/?/-/g' mchr7.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > mdchr7.txt
+
+sed 's/?/-/g' mchr8.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > mdchr8.txt
+
+sed 's/?/-/g' mchr9.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > mdchr9.txt
+
+sed 's/?/-/g' mchr10.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > mdchr10.txt
+
+sed 's/?/-/g' tchr1.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr1.txt
+
+sed 's/?/-/g' tchr2.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr2.txt
+
+sed 's/?/-/g' tchr3.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr3.txt
+
+sed 's/?/-/g' tchr4.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr4.txt
+
+sed 's/?/-/g' tchr5.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr5.txt
+
+sed 's/?/-/g' tchr6.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr6.txt
+
+sed 's/?/-/g' tchr7.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr7.txt
+
+sed 's/?/-/g' tchr8.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr8.txt
+
+sed 's/?/-/g' tchr9.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr9.txt
+
+sed 's/?/-/g' tchr10.txt | (head -n 1 && tail -n +2 | sort -k3,3nr) > tdchr10.txt
 
 
 
